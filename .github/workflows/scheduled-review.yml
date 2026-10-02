@@ -1,0 +1,47 @@
+name: Scheduled Cloud Code Review
+
+on:
+  schedule:
+    # 06 Oct à 09:00 UTC (10:00 heure Maroc)
+    - cron: '0 9 6 10 *'
+    # 07 Oct à 09:00 UTC (10:00 heure Maroc)
+    - cron: '0 9 7 10 *'
+  workflow_dispatch:
+    inputs:
+      day:
+        description: 'Sélectionner le lot à exécuter (1 = 06/10, 2 = 07/10)'
+        required: false
+        default: 'auto'
+        type: choice
+        options:
+          - 'auto'
+          - '1'
+          - '2'
+
+permissions:
+  contents: write
+
+jobs:
+  cloud-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Configure Git Identity
+        run: |
+          git config --global user.name "Amine Arheche"
+          git config --global user.email "aminearheche@gmail.com"
+
+      - name: Execute Review Suite
+        env:
+          CHOSEN_DAY: ${{ inputs.day || 'auto' }}
+        run: |
+          python .github/scripts/run_cloud_review.py
