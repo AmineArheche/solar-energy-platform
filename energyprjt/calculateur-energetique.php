@@ -1,5 +1,19 @@
 <?php
 /**
+ * Estime les économies annuelles selon les tranches tarifaires ONEE (MAD)
+ */
+function estimer_economie_financiere(float $prod_annuelle_kwh, float $tarif_kwh = 1.15): array {
+    $economie_annuelle = round($prod_annuelle_kwh * $tarif_kwh, 2);
+    $economie_25ans = round($economie_annuelle * 25 * 0.90, 2); // dégradation annuelle moyenne
+    $co2_evite_kg = round($prod_annuelle_kwh * 0.70, 1); // facteur carbone moyen Maroc
+    return [
+        'economie_annuelle_dh' => $economie_annuelle,
+        'economie_25ans_dh' => $economie_25ans,
+        'co2_evite_kg' => $co2_evite_kg
+    ];
+}
+
+/**
  * Calcule la puissance crête recommandée (kWc) selon la consommation annuelle (kWh)
  */
 function calculer_dimensionnement_panneaux(float $conso_annuelle_kwh): array {
