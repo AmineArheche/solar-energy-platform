@@ -1,4 +1,20 @@
 <?php
+/**
+ * Calcule la puissance crête recommandée (kWc) selon la consommation annuelle (kWh)
+ */
+function calculer_dimensionnement_panneaux(float $conso_annuelle_kwh): array {
+    $productible = ENSOLEILLEMENT_MOYEN_MAROC * 365 * RENDEMENT_INSTALLATION_SOLAIRE;
+    $puissance_kwc = $productible > 0 ? round($conso_annuelle_kwh / $productible, 2) : 0.0;
+    $nb_panneaux_400w = ceil(($puissance_kwc * 1000) / 400);
+    $surface_estimee_m2 = round($nb_panneaux_400w * 1.95, 1);
+    return [
+        'puissance_kwc' => $puissance_kwc,
+        'nb_panneaux' => (int)$nb_panneaux_400w,
+        'surface_m2' => $surface_estimee_m2,
+        'production_annuelle_estimee' => round($puissance_kwc * $productible, 0)
+    ];
+}
+
 // Constantes solaires de référence pour le Royaume du Maroc (kWh/m²/jour)
 if (!defined('ENSOLEILLEMENT_MOYEN_MAROC')) define('ENSOLEILLEMENT_MOYEN_MAROC', 5.2);
 if (!defined('RENDEMENT_INSTALLATION_SOLAIRE')) define('RENDEMENT_INSTALLATION_SOLAIRE', 0.80);
