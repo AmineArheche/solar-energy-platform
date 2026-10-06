@@ -1,4 +1,8 @@
 <?php
+// Constantes solaires de référence pour le Royaume du Maroc (kWh/m²/jour)
+if (!defined('ENSOLEILLEMENT_MOYEN_MAROC')) define('ENSOLEILLEMENT_MOYEN_MAROC', 5.2);
+if (!defined('RENDEMENT_INSTALLATION_SOLAIRE')) define('RENDEMENT_INSTALLATION_SOLAIRE', 0.80);
+
 session_start();
 require_once 'config/database.php';
 
