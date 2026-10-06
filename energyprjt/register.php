@@ -1,4 +1,8 @@
 <?php
+require_once __DIR__ . '/includes/functions.php';
+secure_session_start();
+apply_security_headers();
+
 require_once 'config/database.php';
 
 // Activer l'affichage des erreurs en développement uniquement
