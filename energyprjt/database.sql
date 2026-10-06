@@ -59,3 +59,6 @@ CREATE TABLE IF NOT EXISTS users (
     password VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ); 
+-- Code Review: Index de performance pour les recherches fréquentes
+ALTER TABLE `products` ADD INDEX `idx_products_category` (`category_id`);
+ALTER TABLE `products` ADD INDEX `idx_products_price` (`price`);
