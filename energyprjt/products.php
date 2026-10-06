@@ -1,4 +1,6 @@
 <?php
+$page_title = "Catalogue Équipements Solaires | Panneaux & Onduleurs Maroc";
+
 if (function_exists('apply_security_headers')) apply_security_headers();
 
 require_once 'config/database.php';
