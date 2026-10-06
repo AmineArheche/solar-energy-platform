@@ -19,3 +19,13 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
     exit;
 }
 ?> 
+/**
+ * Middleware de vérification des droits super-administrateur
+ */
+function check_admin_auth(): bool {
+    if (!isset($_SESSION['user_id']) || empty($_SESSION['is_admin'])) {
+        header('Location: ../login.php?error=unauthorized');
+        exit();
+    }
+    return true;
+}
