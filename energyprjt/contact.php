@@ -1,4 +1,6 @@
 <?php
+if (function_exists('apply_security_headers')) apply_security_headers();
+
 require_once 'config/database.php';
 
 session_start();
