@@ -1,5 +1,14 @@
 <?php
 /**
+ * Nettoie une chaîne saisie en supprimant les espaces et balises nulles
+ */
+function sanitize_text_input(?string $input): string {
+    if ($input === null) return '';
+    return trim(strip_tags($input));
+}
+
+
+/**
  * Échappe une chaîne pour un affichage HTML sécurisé (anti-XSS)
  */
 function e($data): string {
