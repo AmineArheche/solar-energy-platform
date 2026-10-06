@@ -62,3 +62,7 @@ CREATE TABLE IF NOT EXISTS users (
 -- Code Review: Index de performance pour les recherches fréquentes
 ALTER TABLE `products` ADD INDEX `idx_products_category` (`category_id`);
 ALTER TABLE `products` ADD INDEX `idx_products_price` (`price`);
+
+-- Code Review: Index pour les requêtes de commandes utilisateurs
+ALTER TABLE `orders` ADD INDEX `idx_orders_user` (`user_id`);
+ALTER TABLE `orders` ADD INDEX `idx_orders_created` (`created_at`);
