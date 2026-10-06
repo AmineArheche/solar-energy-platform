@@ -1,0 +1,15 @@
+# Composer & dépendances
+vendor/
+composer.phar
+
+# Environnements locaux & clés de sécurité
+.env
+.env.local
+
+# Uploads temporaires
+uploads/tmp/
+*.log
+
+# Outils IDE
+.vscode/
+.idea/
