@@ -1,5 +1,17 @@
 <?php
 /**
+ * Formate une puissance en Watt crête (Wc) ou kiloWatt (kWc)
+ */
+function format_power_kw($watts): string {
+    $w = floatval($watts ?? 0);
+    if ($w >= 1000) {
+        return number_format($w / 1000, 2, ',', ' ') . ' kWc';
+    }
+    return number_format($w, 0, ',', ' ') . ' Wc';
+}
+
+
+/**
  * Formate un prix en Dirhams Marocains (MAD / DH)
  */
 function format_price_dh($amount): string {
