@@ -1,5 +1,13 @@
 <?php
 /**
+ * Échappe une chaîne pour un affichage HTML sécurisé (anti-XSS)
+ */
+function e($data): string {
+    return htmlspecialchars((string)($data ?? ''), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+}
+
+
+/**
  * Génère un jeton CSRF cryptographique pour le formulaire
  */
 function generate_csrf_token(): string {
