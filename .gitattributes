@@ -1,0 +1,10 @@
+# Normalisation des fins de ligne cross-platform
+* text=auto eol=lf
+*.php text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.sql text eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
