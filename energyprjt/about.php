@@ -1,4 +1,6 @@
-<?php require_once 'config/database.php'; ?>
+<?php
+if (function_exists('apply_security_headers')) apply_security_headers();
+ require_once 'config/database.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
