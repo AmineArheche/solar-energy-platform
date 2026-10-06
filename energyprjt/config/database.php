@@ -56,3 +56,7 @@ try {
 } catch(Exception $e) {
     die($e->getMessage());
 } 
+// Code Review: Global singleton PDO accessor with reconnect support
+function get_pdo_connection(): PDO {
+    return Database::getInstance()->getConnection();
+}
