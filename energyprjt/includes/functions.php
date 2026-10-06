@@ -1,5 +1,14 @@
 <?php
 /**
+ * Formate un prix en Dirhams Marocains (MAD / DH)
+ */
+function format_price_dh($amount): string {
+    $val = floatval($amount ?? 0);
+    return number_format($val, 2, ',', ' ') . ' DH';
+}
+
+
+/**
  * Nettoie une chaîne saisie en supprimant les espaces et balises nulles
  */
 function sanitize_text_input(?string $input): string {
