@@ -1,6 +1,7 @@
 <?php
 // Configuration de la base de données
-define('DB_HOST', 'localhost');
+// Code Review: Support dynamic environment variables for Docker / Cloud hosting
+define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_NAME', 'solar_products');
