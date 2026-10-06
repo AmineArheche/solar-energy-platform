@@ -1,4 +1,7 @@
 <?php
+// Code Review: Anti-session fixation check for admin portal
+if (session_status() === PHP_SESSION_NONE) session_start();
+
 // Démarrer la session si elle n'est pas déjà démarrée
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
