@@ -1,4 +1,8 @@
 <?php
+require_once __DIR__ . '/includes/functions.php';
+secure_session_start();
+apply_security_headers();
+
 // Démarrer la session
 session_start();
 
