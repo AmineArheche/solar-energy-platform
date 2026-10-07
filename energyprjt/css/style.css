@@ -17,3 +17,14 @@
     border: none;
     cursor: pointer;
 }
+
+/* Bouton d'action validation verte écologique */
+.btn-solar-success {
+    background-color: var(--solar-green, #10b981);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.6rem 1.25rem;
+    border-radius: var(--solar-radius, 8px);
+    border: none;
+    cursor: pointer;
+}
