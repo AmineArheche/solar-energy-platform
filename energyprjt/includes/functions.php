@@ -1,5 +1,22 @@
 <?php
 /**
+ * Génère le badge HTML stylisé selon le statut de la commande
+ */
+function get_order_status_badge(string $status): string {
+    $map = [
+        'pending' => ['bg' => '#fef3c7', 'text' => '#92400e', 'label' => 'En attente'],
+        'confirmed' => ['bg' => '#dbeafe', 'text' => '#1e40af', 'label' => 'Confirmée'],
+        'shipping' => ['bg' => '#e0e7ff', 'text' => '#3730a3', 'label' => 'En expédition'],
+        'delivered' => ['bg' => '#d1fae5', 'text' => '#065f46', 'label' => 'Livrée'],
+        'cancelled' => ['bg' => '#fee2e2', 'text' => '#991b1b', 'label' => 'Annulée']
+    ];
+    $cfg = $map[strtolower($status)] ?? ['bg' => '#f3f4f6', 'text' => '#374151', 'label' => ucfirst($status)];
+    return sprintf('<span style="background:%s;color:%s;padding:3px 10px;border-radius:9999px;font-weight:600;font-size:12px;">%s</span>',
+        $cfg['bg'], $cfg['text'], e($cfg['label']));
+}
+
+
+/**
  * Valide un fichier image uploadé (MIME, extension, taille max)
  */
 function validate_image_upload(array $file, int $max_size_mb = 5): array {
