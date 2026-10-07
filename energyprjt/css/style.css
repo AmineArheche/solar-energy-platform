@@ -28,3 +28,10 @@
     border: none;
     cursor: pointer;
 }
+
+/* Grille réactive pour les produits solaires */
+.solar-grid-responsive {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
