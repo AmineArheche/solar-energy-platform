@@ -35,3 +35,12 @@
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
 }
+
+/* Boîte métrique pour les statistiques solaires */
+.solar-stat-box {
+    padding: 1.25rem;
+    border-radius: var(--solar-radius, 8px);
+    background: #ffffff;
+    border: 1px solid var(--solar-border, #e2e8f0);
+    text-align: center;
+}
