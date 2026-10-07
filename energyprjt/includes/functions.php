@@ -1,5 +1,26 @@
 <?php
 /**
+ * Valide un fichier image uploadé (MIME, extension, taille max)
+ */
+function validate_image_upload(array $file, int $max_size_mb = 5): array {
+    if ($file['error'] !== UPLOAD_ERR_OK) {
+        return ['valid' => false, 'error' => 'Erreur lors du téléchargement.'];
+    }
+    if ($file['size'] > $max_size_mb * 1024 * 1024) {
+        return ['valid' => false, 'error' => "Taille maximale dépassée ($max_size_mb Mo)."];
+    }
+    $allowed_mimes = ['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml'];
+    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+    $mime = finfo_file($finfo, $file['tmp_name']);
+    finfo_close($finfo);
+    if (!in_array($mime, $allowed_mimes)) {
+        return ['valid' => false, 'error' => 'Format de fichier non autorisé (JPEG, PNG, WebP uniquement).'];
+    }
+    return ['valid' => true, 'mime' => $mime];
+}
+
+
+/**
  * Formate une puissance en Watt crête (Wc) ou kiloWatt (kWc)
  */
 function format_power_kw($watts): string {
