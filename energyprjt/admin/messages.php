@@ -1,6 +1,7 @@
 <?php
 require_once '../config/database.php';
 require_once 'check_admin.php';
+if (function_exists('check_admin_auth')) check_admin_auth();
 
 // Vérifier si la connexion à la base de données est établie
 if (!isset($conn) || !$conn) {
