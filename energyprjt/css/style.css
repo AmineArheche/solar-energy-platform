@@ -1,0 +1,8 @@
+/* Solar Energy Platform — Base Style */
+
+/* Effet d'élévation fluide au survol */
+.solar-card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: all 0.25s ease;
+}
