@@ -6,3 +6,14 @@
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     transition: all 0.25s ease;
 }
+
+/* Bouton primaire solaire doré */
+.btn-solar-primary {
+    background-color: var(--solar-gold, #f59e0b);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.6rem 1.25rem;
+    border-radius: var(--solar-radius, 8px);
+    border: none;
+    cursor: pointer;
+}
