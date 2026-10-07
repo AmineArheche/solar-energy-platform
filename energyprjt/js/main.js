@@ -6,3 +6,5 @@ SolarCalculatorApp.formatWatts = function(w) { return w >= 1000 ? (w/1000).toFix
 SolarCalculatorApp.calculateCO2 = function(kwh) { return Math.round(kwh * 0.70); }; // kg CO2
 
 SolarCalculatorApp.calculateRoofArea = function(panelCount) { return (panelCount * 1.95).toFixed(1); }; // m²
+
+SolarCalculatorApp.isValidEmail = function(email) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); };
